@@ -49,8 +49,10 @@ func Test_Newf(t *testing.T) {
 		t.Errorf("wanted %q, got %q", ctx, ewc.ctx)
 	}
 	
-	if (ewc.string != fmt.Sprintf(text, arg)) {
-		t.Errorf("wanted %q, got %q", text, ewc.string)
+	wanted := fmt.Sprintf(text, arg)
+	got := ewc.Error()
+	if wanted != got {
+		t.Errorf("wanted %q, got %q", wanted, got)
 	}
 }
 
